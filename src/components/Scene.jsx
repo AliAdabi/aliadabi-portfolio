@@ -2,6 +2,8 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { Suspense } from 'react'
 import ArcadeModel from './ArcadeModel'
+import NameTag from './NameTag'
+import IdlePrompt from './IdlePrompt'
 import { useStore } from '../store'
 
 export default function Scene() {
@@ -25,6 +27,7 @@ export default function Scene() {
 
         <Suspense fallback={null}>
           <ArcadeModel />
+          <NameTag />
         </Suspense>
 
         <OrbitControls
@@ -38,21 +41,35 @@ export default function Scene() {
         />
       </Canvas>
 
+      <IdlePrompt />
+
       {phase === 'screen' && (
-        <div style={{
-          position: 'absolute',
-          bottom: '24px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          color: '#00fff7',
-          fontFamily: 'monospace',
-          fontSize: '12px',
-          opacity: 0.6,
-          letterSpacing: '2px'
-        }}>
-          [ ESC ] EXIT
-        </div>
-      )}
+  <div
+    onClick={() => {
+      const event = new KeyboardEvent('keydown', { key: 'Escape' })
+      window.dispatchEvent(event)
+    }}
+    style={{
+      position: 'absolute',
+      bottom: '24px',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      color: '#00fff7',
+      fontFamily: 'monospace',
+      fontSize: '12px',
+      opacity: 0.6,
+      letterSpacing: '2px',
+      cursor: 'pointer',
+      pointerEvents: 'auto',
+      padding: '8px 16px',
+      border: '1px solid #00fff744',
+    }}
+    onMouseEnter={e => e.target.style.opacity = 1}
+    onMouseLeave={e => e.target.style.opacity = 0.6}
+  >
+    [ ESC ] EXIT
+  </div>
+)}
     </div>
   )
 }

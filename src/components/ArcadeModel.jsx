@@ -6,7 +6,7 @@ import * as THREE from 'three'
 import ScreenUI from './ScreenUI'
 
 export default function ArcadeModel() {
-    const { scene, nodes } = useGLTF('/arcade.glb')
+    const { scene, nodes } = useGLTF('/arcade1.0.glb')
     const { phase, setPhase } = useStore()
     const { camera } = useThree()
     const animating = useRef(false)

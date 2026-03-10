@@ -5,6 +5,8 @@ import ArcadeModel from './ArcadeModel'
 import NameTag from './NameTag'
 import IdlePrompt from './IdlePrompt'
 import { useStore } from '../store'
+import ScreenUI from './ScreenUI'
+import IdleScreen from './IdleScreen'
 
 export default function Scene() {
   const { phase } = useStore()
@@ -27,6 +29,7 @@ export default function Scene() {
 
         <Suspense fallback={null}>
           <ArcadeModel />
+          <IdleScreen/>
           <NameTag />
         </Suspense>
 
@@ -34,8 +37,7 @@ export default function Scene() {
           enabled={phase === 'idle'}
           enableZoom={false}
           enablePan={false}
-          autoRotate
-          autoRotateSpeed={0.6}
+          autoRotate = {false}
           minPolarAngle={Math.PI / 3}
           maxPolarAngle={Math.PI / 2}
         />

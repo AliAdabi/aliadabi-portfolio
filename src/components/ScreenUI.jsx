@@ -196,10 +196,12 @@ export default function ScreenUI() {
                 ))}
               </div>
               <div style={{ display: 'flex', gap: '16px' }}>
-                <a href={selected.github} target="_blank" rel="noreferrer" style={{
-                  color: '#00fff7', fontSize: '10px', letterSpacing: '2px',
-                  textDecoration: 'none', border: '1px solid #00fff7', padding: '6px 16px',
-                }}>GITHUB ↗</a>
+              {selected.github && (
+                  <a href={selected.github} target="_blank" rel="noreferrer" style={{
+                    color: '#00fff7', fontSize: '10px', letterSpacing: '2px',
+                    textDecoration: 'none', border: '1px solid #00fff7', padding: '6px 16px',
+                  }}>GITHUB ↗</a>
+                )}
                 {selected.live && (
                   <a href={selected.live} target="_blank" rel="noreferrer" style={{
                     color: '#000', background: '#00fff7', fontSize: '10px',

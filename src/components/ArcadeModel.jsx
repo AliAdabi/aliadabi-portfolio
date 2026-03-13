@@ -80,7 +80,7 @@ export default function ArcadeModel({ onLoaded }) {
 
       {phase === 'screen' && (
         <Html
-          position={[0.01, 0.62, 0.53]}
+          position={[0.0001, 0.73, 0.53]}
           transform
           occlude
           scale={0.042}
